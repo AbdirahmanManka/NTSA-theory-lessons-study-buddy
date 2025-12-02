@@ -7,7 +7,7 @@ import MarkdownRenderer from './MarkdownRenderer';
 const ChatWidget: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([
-    { role: 'model', text: 'Jambo! 👋 I am your NTSA Driving Instructor. Ask me anything about driving rules, signs, or safety!', timestamp: Date.now() }
+    { role: 'model', text: 'Jambo! 👋 I am your NTSA Driving Instructor. Ask me anything about driving rules, signs, or safety!!!', timestamp: Date.now() }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
