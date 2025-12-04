@@ -50,10 +50,10 @@ const ChatWidget: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end max-w-[calc(100vw-2rem)] sm:max-w-none">
       {/* Chat Window */}
       {isOpen && (
-        <div className="bg-white w-[90vw] md:w-[400px] h-[500px] rounded-xl shadow-2xl border border-gray-200 flex flex-col mb-4 overflow-hidden animate-fade-in-up transition-all">
+        <div className="bg-white w-[calc(100vw-2rem)] sm:w-[90vw] md:w-[400px] max-w-[400px] h-[calc(100vh-8rem)] sm:h-[500px] max-h-[600px] rounded-xl shadow-2xl border border-gray-200 flex flex-col mb-4 overflow-hidden animate-fade-in-up transition-all">
           {/* Header */}
           <div className="bg-primary p-4 flex justify-between items-center text-white">
             <div className="flex items-center gap-2">
@@ -77,7 +77,7 @@ const ChatWidget: React.FC = () => {
             {messages.map((msg, idx) => (
               <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div 
-                  className={`max-w-[85%] p-3 rounded-2xl text-sm ${
+                  className={`max-w-[85%] p-3 rounded-2xl text-sm break-words overflow-wrap-anywhere ${
                     msg.role === 'user' 
                       ? 'bg-primary text-white rounded-br-none' 
                       : 'bg-white text-slate-700 shadow-sm border border-gray-100 rounded-bl-none'
@@ -127,10 +127,10 @@ const ChatWidget: React.FC = () => {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="group flex items-center gap-2 bg-primary hover:bg-primary-hover text-white py-3 px-5 rounded-full shadow-lg transition-all transform hover:scale-105"
+          className="group flex items-center gap-2 bg-primary hover:bg-primary-hover text-white py-3 px-3 sm:px-5 rounded-full shadow-lg transition-all transform hover:scale-105"
         >
-          <MessageCircle size={24} />
-          <span className="font-medium">Ask Instructor</span>
+          <MessageCircle size={20} className="sm:w-6 sm:h-6 flex-shrink-0" />
+          <span className="font-medium text-sm sm:text-base hidden sm:inline whitespace-nowrap">Ask Instructor</span>
         </button>
       )}
     </div>

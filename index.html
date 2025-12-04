@@ -23,6 +23,19 @@
       }
     </script>
     <style>
+      /* Prevent horizontal scrolling globally */
+      html, body {
+        overflow-x: hidden;
+        max-width: 100vw;
+        position: relative;
+      }
+      
+      /* Prevent images and media from causing overflow */
+      img, video, iframe, embed, object {
+        max-width: 100%;
+        height: auto;
+      }
+      
       /* Custom scrollbar for chatbot to look clean */
       .scrollbar-hide::-webkit-scrollbar {
           display: none;
@@ -30,6 +43,18 @@
       .scrollbar-hide {
           -ms-overflow-style: none;
           scrollbar-width: none;
+      }
+      
+      /* Ensure text wraps properly */
+      * {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+      
+      /* Ensure root container doesn't overflow */
+      #root {
+        overflow-x: hidden;
+        max-width: 100vw;
       }
     </style>
   <script type="importmap">
@@ -45,7 +70,7 @@
 </script>
 <link rel="stylesheet" href="/index.css">
 </head>
-  <body class="bg-bg-layout text-slate-800">
+  <body class="bg-bg-layout text-slate-800 overflow-x-hidden">
     <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
 </body>
