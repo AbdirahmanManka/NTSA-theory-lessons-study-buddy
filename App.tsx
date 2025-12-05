@@ -106,7 +106,32 @@ const App: React.FC = () => {
             onClick={() => handleTopicClick(topic)}
             className="group bg-white p-4 sm:p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-lg hover:border-primary/30 transition-all cursor-pointer flex flex-col items-center text-center gap-3 overflow-x-hidden"
           >
-            <span className="text-4xl group-hover:scale-110 transition-transform duration-300">{topic.icon}</span>
+            {topic.icon === 'steering-wheel' ? (
+              <svg 
+                className="w-16 h-16 group-hover:scale-110 transition-transform duration-300 text-primary" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+              >
+                <circle cx="12" cy="12" r="9" />
+                <circle cx="12" cy="12" r="2" />
+                <line x1="12" y1="3" x2="12" y2="6" />
+                <line x1="12" y1="18" x2="12" y2="21" />
+                <line x1="3" y1="12" x2="6" y2="12" />
+                <line x1="18" y1="12" x2="21" y2="12" />
+                <line x1="5.64" y1="5.64" x2="7.76" y2="7.76" />
+                <line x1="16.24" y1="16.24" x2="18.36" y2="18.36" />
+                <line x1="18.36" y1="5.64" x2="16.24" y2="7.76" />
+                <line x1="7.76" y1="16.24" x2="5.64" y2="18.36" />
+              </svg>
+            ) : topic.icon.startsWith('fa-') ? (
+              <i className={`fas ${topic.icon} text-4xl group-hover:scale-110 transition-transform duration-300 text-primary`}></i>
+            ) : (
+              <span className="text-4xl group-hover:scale-110 transition-transform duration-300">{topic.icon}</span>
+            )}
             <h3 className="font-semibold text-slate-700 group-hover:text-primary transition-colors break-words overflow-wrap-anywhere">{topic.title}</h3>
             <span className="text-xs text-slate-400 font-medium bg-gray-50 px-2 py-1 rounded-full whitespace-nowrap">Read Notes</span>
           </div>
@@ -128,7 +153,32 @@ const App: React.FC = () => {
         {/* Header */}
         <div className="bg-gray-50 border-b border-gray-200 p-4 sm:p-6 flex flex-col md:flex-row justify-between items-center gap-4 overflow-x-hidden">
             <div className="flex items-center gap-3 min-w-0 flex-1">
-                <span className="text-4xl flex-shrink-0">{selectedTopic?.icon || '🔍'}</span>
+                {selectedTopic?.icon === 'steering-wheel' ? (
+                  <svg 
+                    className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 text-primary" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="9" />
+                    <circle cx="12" cy="12" r="2" />
+                    <line x1="12" y1="3" x2="12" y2="6" />
+                    <line x1="12" y1="18" x2="12" y2="21" />
+                    <line x1="3" y1="12" x2="6" y2="12" />
+                    <line x1="18" y1="12" x2="21" y2="12" />
+                    <line x1="5.64" y1="5.64" x2="7.76" y2="7.76" />
+                    <line x1="16.24" y1="16.24" x2="18.36" y2="18.36" />
+                    <line x1="18.36" y1="5.64" x2="16.24" y2="7.76" />
+                    <line x1="7.76" y1="16.24" x2="5.64" y2="18.36" />
+                  </svg>
+                ) : selectedTopic?.icon && selectedTopic.icon.startsWith('fa-') ? (
+                  <i className={`fas ${selectedTopic.icon} text-4xl flex-shrink-0 text-primary`}></i>
+                ) : (
+                  <span className="text-4xl flex-shrink-0">{selectedTopic?.icon || '🔍'}</span>
+                )}
                 <h1 className="text-xl sm:text-2xl font-bold text-slate-800 break-words overflow-wrap-anywhere">{selectedTopic?.title || 'Search Results'}</h1>
             </div>
             {selectedTopic && (

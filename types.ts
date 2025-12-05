@@ -32,7 +32,7 @@ export const NTSA_TOPICS: Topic[] = [
   { id: 'controls', title: 'Vehicle Construction & Controls', icon: '⚙️' },
   { id: 'inspection', title: 'Self-Inspection', icon: '🔍' },
   { id: 'observation', title: 'Observation', icon: '👀' },
-  { id: 'control', title: 'Vehicle Control', icon: '🎮' },
+  { id: 'control', title: 'Vehicle Control', icon: 'steering-wheel' },
   { id: 'comm', title: 'Communication', icon: '📡' },
   { id: 'speed', title: 'Speed Management', icon: '🚀' },
   { id: 'space', title: 'Space Management', icon: '↔️' },
